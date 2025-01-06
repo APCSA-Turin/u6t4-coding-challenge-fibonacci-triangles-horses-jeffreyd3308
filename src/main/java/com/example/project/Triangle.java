@@ -14,6 +14,7 @@ public class Triangle {
     // HINT: use the distanceTo method that you wrote in the Point class
     public double perimeter() {
       /* IMPLEMENT ME */
+      return 0.0;
     }
   
     // Returns a String with the three vertices that make up the Triangle;
@@ -21,6 +22,7 @@ public class Triangle {
     // this method should return: "[(6, 10), (11, 15), (18, 7)]"
     public String triangleInfo() {
       /* IMPLEMENT ME */
+      return "";
     }
   }
   
