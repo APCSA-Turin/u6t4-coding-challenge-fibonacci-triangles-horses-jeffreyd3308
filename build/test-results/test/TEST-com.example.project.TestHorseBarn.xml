@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.project.TestHorseBarn" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-07T22:41:42" hostname="codespaces-e92405" time="0.031">
+  <properties/>
+  <testcase name="testHorseBarnConstructorAndGetStalls()" classname="com.example.project.TestHorseBarn" time="0.022"/>
+  <testcase name="testPlaceHorseAndFindHorseStall()" classname="com.example.project.TestHorseBarn" time="0.002"/>
+  <testcase name="testConsolidate()" classname="com.example.project.TestHorseBarn" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

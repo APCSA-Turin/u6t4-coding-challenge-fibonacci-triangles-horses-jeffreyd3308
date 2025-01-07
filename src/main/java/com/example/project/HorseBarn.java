@@ -13,12 +13,17 @@ public class HorseBarn {
      */
     public HorseBarn(int numStalls) {
         /* to be implemented in part (a) */
+        stalls = new Horse[numStalls];
     }
 
     /** Assigns stalls to reference sampleHorses
      */
     public HorseBarn(Horse[] sampleStalls) {
         /* to be implemented in part (a) */
+        stalls = new Horse[sampleStalls.length];
+        for (int i = 0; i < sampleStalls.length; i++) {
+            stalls[i] = sampleStalls[i];
+        }
     }
 
     /** Getter/accessor method for stalls
@@ -27,11 +32,23 @@ public class HorseBarn {
      */
     // to be added in part (a)
 
+    public Horse[] getStalls() {
+        return stalls;
+    }
+
     /** Returns a string that shows which horses are in which stalls
      */
     public String horseBarnInfo() {
         /* to be implemented in part (b) */
-        return "";
+        String str = "";
+        for (int i = 0; i < stalls.length; i++) {
+            if (stalls[i] != null) {
+                str += "Stall " + i + ": name: " + stalls[i].getName() + ", weight: " + stalls[i].getWeight() + "\n";
+            } else {
+                str += "Stall " + i + ": empty\n";
+            }
+        }
+        return str;
     }
 
     /** Places a Horse into stalls at the index indicated by stall
@@ -43,6 +60,7 @@ public class HorseBarn {
      */
     public void placeHorse(Horse horse, int stall) {
         /* to be implemented in part (c) */
+        stalls[stall] = horse;
     }
 
     /** Returns the index of the stall that contains the horse with the specified name.
@@ -55,7 +73,12 @@ public class HorseBarn {
      */
     public int findHorseStall(String name) {
         /* to be implemented in part (d) */
-        return 0;
+        for (int i = 0; i < stalls.length; i++) {
+            if (stalls[i] != null && stalls[i].getName().equals(name)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /** Consolidates the barn by moving horses so that the horses are in adjacent
@@ -65,5 +88,18 @@ public class HorseBarn {
      */
     public void consolidate() {
         /* to be implemented in part (e) */
+        int firstNull = 0;
+        for (int i = 0; i < stalls.length; i++) {
+            if (stalls[i] == null && firstNull == 0) {
+                firstNull = i;
+            }
+            if (stalls[i] != null) {
+                if (firstNull != 0) {
+                    placeHorse(stalls[i], firstNull);
+                    placeHorse(null, i);
+                    firstNull++;
+                }
+            }
+        }
     }
 }
